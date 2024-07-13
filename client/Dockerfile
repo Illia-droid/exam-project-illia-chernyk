@@ -14,6 +14,8 @@ EXPOSE 5000
 
 RUN npm install
 
-RUN chown -R node:node /client/node_modules
+RUN mkdir -p node_modules \
+    && chown -R node:node node_modules \
+    && chmod -R 755 node_modules
 
 CMD npm start
